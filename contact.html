@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px;
+            background: #9ac1ea;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 5px 0 0;
+        }
+
+        .top-nav {
+            background-color: #004080;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .top-nav nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .top-nav nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 10px;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }/* Footer */
+    footer {
+      background-color: #004080;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    footer a {
+      color: #00aaff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }body {
+    font-family: 'Arial', sans-serif;
+    background: url('pic 1.jfif') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Make the background cover the entire page */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Fill in the form below and we’ll get back to you shortly.</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <div class="top-nav">
+        <div class="logo"></div>
+        <nav>
+            
+            <a href="home.html">Home</a><a href="apply.html">Apply</a>
+            <a href="receipts.html">Receipts</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+
+    <main>
+        <form id="contact-form" method="post">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email *</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </main>
+
+    <script src="scripts.js"></script> <!-- Footer -->
+</script><!-- Footer -->
+<footer>
+  <p>&copy; 2025 Fh260. All rights reserved.</p>
+  <p>
+    <a href="sign.html">Sign In</a> | 
+    <a href="index.html">Back Page</a> | 
+    <a href="#" onclick="logoutUser()">Log Out</a>
+  </p>
+</footer>
+
+<script>
+  // Function to handle user logout
+  function logoutUser() {
+    // Clear user session or data (example for localStorage)
+    localStorage.clear(); // Adjust based on your storage method (session, cookies, etc.)
+
+    // Redirect to a login or home page
+    alert("You have successfully logged out.");
+    window.location.href = "sign.html"; // Redirect to the sign-in page
+  }
+</script>

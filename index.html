@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KCA University</title>
+    <style>
+        /* Reset and general styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #ada8a8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Section */
+        header {
+            background-color: #003366; /* KCAU's branding color */
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            background-color: #004080;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero .cta {
+            padding: 12px 20px;
+            background-color: #ff6600;
+            color: white;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+
+        .hero .cta:hover {
+            background-color: #cc5200;
+        }
+
+        /* Featured Programs Section */
+        .featured-programs {
+            padding: 40px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .featured-programs h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .programs-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .program {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .program h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .program p {
+            font-size: 1rem;
+        }
+
+        .main-footer {
+    background-color: #003366; /* Dark blue background */
+    color: white; /* White text color */
+    text-align: center; /* Center align text */
+    padding: 20px 10px; /* Add padding for spacing */
+    font-size: 0.9rem; /* Adjust font size for readability */
+    margin-top: 30px; /* Add space above footer */
+}
+
+.main-footer a {
+    color: #ffcc00; /* Bright yellow link color for contrast */
+    text-decoration: none; /* Remove underline from links */
+    font-weight: bold; /* Make links bold */
+    margin: 0 5px; /* Add space between links */
+}
+
+.main-footer a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: #ffd700; /* Slightly brighter yellow on hover */
+}
+
+.main-footer p {
+    margin: 10px 0; /* Add spacing between paragraphs */
+}
+
+.main-footer p a {
+    display: inline-block; /* Inline-block for better spacing */
+}
+
+    header {
+        flex-direction: column; /* Stack logo and navigation */
+        align-items: center;
+        text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="KCAU Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="apply.html">Apply</a></li>
+                <li><a href="receipts.html">Receipts</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="sign.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome fh260</h1>
+        <p>We start counting from here</p>
+        <!-- Sign In Now Button updated to link to sign.html -->
+<a href="sign.html" class="cta">Sign In Now</a>
+
+<!-- If you're using an inline JavaScript method for showing the sign-in form -->
+<a href="#sign-in" onclick="showSignInForm()"></a>
+
+    </section>
+
+    <!-- Featured Programs Section -->
+    <section class="featured-programs">
+        <h2>Our Programs</h2>
+        <div class="programs-container">
+            <div class="program">
+                <h3>Chain</h3>
+                <p>To help adjust to electronic system than manual.</p>
+            </div>
+            <div class="program">
+                <h3>IT</h3>
+                <p>Making work more easier each day in the world of technology.</p>
+            </div>
+            <div class="program">
+                <h3>Accounting</h3>
+                <p>Prepare and display fund requests and approval for easy accountability and transparency.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <!-- Footer -->
+<footer>
+    <p>&copy; 2025 Fh260. All rights reserved.</p>
+    <p>
+      <a href="sign.html">Sign In</a> | 
+      <a href="index.html">Back Page</a> | 
+     
+    </p>
+  </footer>
+  <footer class="main-footer">
+    <p>&copy; 2025 Fh260. All rights reserved.</p>
+    <p>
+        <a href="sign.html">Sign In</a> | 
+        <a href="index.html">Back Page</a> | 
+        <a href="#" onclick="logoutUser()">Log Out</a>
+    </p>
+</footer>
+
+  <script>
+    // Function to handle user logout
+    function logoutUser() {
+      // Clear user session or data (example for localStorage)
+      localStorage.clear(); // Adjust based on your storage method (session, cookies, etc.)
+  
+      // Redirect to a login or home page
+      alert("You have successfully logged out.");
+      window.location.href = "sign.html"; // Redirect to the sign-in page
+    }
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+  }
+  
+  .dashboard {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #e2e2e2;
+    padding: 10px 20px;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    background: #b22222;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+  
+  .greeting p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  .greeting span {
+    font-weight: bold;
+  }
+  
+  .notifications img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .quick-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+  
+  .quick-actions .action {
+    background: #fff0f0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    flex: 1;
+    margin: 0 5px;
+    font-size: 12px;
+  }
+  
+  .balance-section {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+  .balance-section p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .show-balance {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #b22222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .main-actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .main-actions button {
+    padding: 10px 20px;
+    background: #b22222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    flex: 1;
+    margin: 0 5px;
+  }
+  
+  .accounts {
+    padding: 10px 20px;
+  }
+  
+  .accounts h3 {
+    margin: 0 0 10px;
+    font-size: 16px;
+  }
+  
+  .account-card {
+    background: #b22222;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    background: #e2e2e2;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+  
