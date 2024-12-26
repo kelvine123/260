@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receipt Portal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1rem;
+        }
+
+        /* Navigation Bar */
+    .top-nav {
+      background-color: #004080;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .top-nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .top-nav nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .top-nav nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #filter-section {
+            margin-bottom: 20px;
+        }
+
+        #filter-section label {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        #filter-section select {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        #results-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            flex: 1 1 300px;
+        }
+
+        .container h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #007bff;
+        }
+
+        .container p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .top-nav nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        footer {
+            background-color: #004080;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            margin-top: 40px;
+        }/* General navigation styles */
+nav {
+  background-color: #003366; /* Same blue color as in the image */
+  text-align: center; /* Center align the links */
+  padding: 10px 0;
+}
+
+nav a {
+  color: white; /* Text color */
+  font-size: 1rem; /* Font size for phones */
+  margin: 0 15px; /* Space between links */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline; /* Optional: Underline on hover */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 480px) {
+  nav a {
+    font-size: 0.9rem; /* Slightly smaller font size for phones */
+    margin: 0 10px; /* Adjust spacing for smaller screens */
+  }
+}
+
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #00aaff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }body {
+    font-family: 'Arial', sans-serif;
+    background: url('mq.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Make the background cover the entire page */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Receipt Portal</h1>
+        <p>Select your name and view your balances and transactions.</p>
+    </header>
+  <!-- Navigation Section -->
+  <div class="">
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="apply.html">Apply</a>
+        <a href="receipts.html">Receipts</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</div>
+    </div>
+
+    <main>
+        <section id="filter-section">
+            <label for="name-dropdown">Select Name:</label>
+            <select id="name-dropdown">
+                <option value="" disabled selected>Select a name</option>
+            </select>
+        </section>
+
+        <section id="results-section">
+            <!-- Data containers will be dynamically added here -->
+        </section>
+    </main>
+
+    <script>
+        const API_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTGUVHqadLXkMMMYTqveJozm3pUww5PLoYXvs0Dcm8U3AuZOsqqCqmCmVXkeSeZ82FQ7ARHPhLW-dWo/pub?output=csv';
+        const nameDropdown = document.getElementById("name-dropdown");
+        const resultsSection = document.getElementById("results-section");
+
+        async function fetchData() {
+            try {
+                const response = await fetch(API_URL);
+                const textData = await response.text();
+                const rows = textData.split("\n").slice(1).map(row => row.split(","));
+
+                const data = rows.map(row => ({
+                    Date: row[0]?.trim(),
+                    Name: row[1]?.trim(),
+                    TotalAmount: row[2]?.trim(),
+                    Reference: row[3]?.trim()
+                }));
+
+                populateDropdown(data);
+                setupDropdownListener(data);
+            } catch (error) {
+                console.error("Error fetching or parsing data:", error);
+            }
+        }
+
+        function populateDropdown(data) {
+            const uniqueNames = [...new Set(data.map(item => item.Name))];
+            uniqueNames.forEach(name => {
+                if (name) {
+                    const option = document.createElement("option");
+                    option.value = name;
+                    option.textContent = name;
+                    nameDropdown.appendChild(option);
+                }
+            });
+        }
+
+        function setupDropdownListener(data) {
+            nameDropdown.addEventListener("change", () => {
+                const selectedName = nameDropdown.value;
+                resultsSection.innerHTML = "";
+
+                const filteredData = data.filter(row => row.Name === selectedName);
+
+                filteredData.forEach(row => {
+                    const container = document.createElement("div");
+                    container.classList.add("container");
+
+                    container.innerHTML = `
+                        <h3>${row.Name}</h3>
+                        <p><strong>Date:</strong> ${row.Date}</p>
+                        <p><strong>Total Amount:</strong> ${row.TotalAmount}</p>
+                        <p><strong>Reference:</strong> ${row.Reference}</p>
+                    `;
+                    resultsSection.appendChild(container);
+                });
+            });
+        }
+
+        fetchData();
+    </script>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Fh260. All rights reserved.</p>
+    <p>
+      <a href="sign.html">Sign In</a> | 
+      <a href="index.html">Back Page</a> | 
+      <a href="#" onclick="logoutUser()">Log Out</a>
+    </p>
+  </footer>
+  
+  <script>
+    // Function to handle user logout
+    function logoutUser() {
+      // Clear user session or data (example for localStorage)
+      localStorage.clear(); // Adjust based on your storage method (session, cookies, etc.)
+  
+      // Redirect to a login or home page
+      alert("You have successfully logged out.");
+      window.location.href = "sign.html"; // Redirect to the sign-in page
+    }
+  </script>
+  
